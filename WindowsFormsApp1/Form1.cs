@@ -91,6 +91,19 @@ namespace WindowsFormsApp1
                     seBubble.DoWork(myArray, g, panel1.Height);
                     button1.Enabled = true;
                     break;
+                case "Odd Even Sort":
+                    if (myArray == null)
+                    {
+                        MessageBox.Show("Please press Generate first to generate or regenerate values", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    }
+                    comboBox2.Enabled = false;
+                    button3.Enabled = false;
+                    button2.Enabled = false;
+                    ISortEngine seOddEven = new SortEngineOddEven(this);
+                    seOddEven.DoWork(myArray, g, panel1.Height);
+                    button1.Enabled = true;
+                    break;
                 case "Insertion sort":
                     if (myArray == null)
                     {
@@ -128,6 +141,19 @@ namespace WindowsFormsApp1
                     button2.Enabled = false;
                     ISortEngine seCocktail = new SortEngineCocktail(this);
                     seCocktail.DoWork(myArray, g, panel1.Height);
+                    button1.Enabled = true;
+                    break;
+                case "Stalin Sort":
+                    if (myArray == null)
+                    {
+                        MessageBox.Show("Please press Generate first to generate or regenerate values", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    }
+                    comboBox2.Enabled = false;
+                    button3.Enabled = false;
+                    button2.Enabled = false;
+                    ISortEngine seStalin = new SortEngineStalin(this);
+                    seStalin.DoWork(myArray, g, panel1.Height);
                     button1.Enabled = true;
                     break;
             }

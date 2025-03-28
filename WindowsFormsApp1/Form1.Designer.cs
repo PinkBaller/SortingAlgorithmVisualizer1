@@ -97,7 +97,9 @@
             "Bubble sort",
             "Insertion sort",
             "Cocktail sort",
-            "Quick sort"});
+            "Quick sort",
+            "Odd Even Sort",
+            "Stalin Sort"});
             this.comboBox2.Location = new System.Drawing.Point(69, 25);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(208, 21);

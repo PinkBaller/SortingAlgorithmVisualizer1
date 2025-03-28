@@ -58,7 +58,9 @@
     <Compile Include="SortEngineBubble.cs" />
     <Compile Include="SortEngineCocktail.cs" />
     <Compile Include="SortEngineInsertion.cs" />
+    <Compile Include="SortEngineOddEven.cs" />
     <Compile Include="SortEngineQuick.cs" />
+    <Compile Include="SortEngineStalin.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
