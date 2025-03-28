@@ -14,7 +14,6 @@ namespace WindowsFormsApp1
         private Form1 myForm;
         private int[] myArray;
         private Graphics g;
-        private int swapsCount = 0;
         private int comparisonsCount = 0;
         private int MaxVal;
 

@@ -22,7 +22,7 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
-            button1.Enabled = false;
+            StopButton.Enabled = false;
         }
 
         
@@ -32,9 +32,9 @@ namespace WindowsFormsApp1
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void GenerateButton_Click(object sender, EventArgs e)
         {
-            button1.Enabled = true;
+            StopButton.Enabled = true;
             g = panel1.CreateGraphics();
             int NumEntries = panel1.Width;
             int MaxVal = panel1.Height;
@@ -64,7 +64,7 @@ namespace WindowsFormsApp1
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void StartButton_Click(object sender, EventArgs e)
         {
             if (_stopper)
             {
@@ -75,8 +75,8 @@ namespace WindowsFormsApp1
                 case "":
                     MessageBox.Show("Please select a viable sorting algorithm", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     comboBox2.Enabled = true;
-                    button3.Enabled = true;
-                    button2.Enabled = true;
+                    StartButton.Enabled = true;
+                    GenerateButton.Enabled = true;
                     break;
                 case "Bubble sort":
                     if(myArray == null)
@@ -85,11 +85,11 @@ namespace WindowsFormsApp1
                         break;
                     }
                     comboBox2.Enabled = false;
-                    button3.Enabled = false;
-                    button2.Enabled = false;
+                    StartButton.Enabled = false;
+                    GenerateButton.Enabled = false;
                     ISortEngine seBubble = new SortEngineBubble(this);
                     seBubble.DoWork(myArray, g, panel1.Height);
-                    button1.Enabled = true;
+                    StopButton.Enabled = true;
                     break;
                 case "Odd Even Sort":
                     if (myArray == null)
@@ -98,11 +98,11 @@ namespace WindowsFormsApp1
                         break;
                     }
                     comboBox2.Enabled = false;
-                    button3.Enabled = false;
-                    button2.Enabled = false;
+                    StartButton.Enabled = false;
+                    GenerateButton.Enabled = false;
                     ISortEngine seOddEven = new SortEngineOddEven(this);
                     seOddEven.DoWork(myArray, g, panel1.Height);
-                    button1.Enabled = true;
+                    StopButton.Enabled = true;
                     break;
                 case "Insertion sort":
                     if (myArray == null)
@@ -111,11 +111,11 @@ namespace WindowsFormsApp1
                         break;
                     }
                     comboBox2.Enabled = false;
-                    button3.Enabled = false;
-                    button2.Enabled = false;
+                    StartButton.Enabled = false;
+                    GenerateButton.Enabled = false;
                     ISortEngine seInsertion = new SortEngineInsertion(this);
                     seInsertion.DoWork(myArray, g, panel1.Height);
-                    button1.Enabled = true;
+                    StopButton.Enabled = true;
                     break;
                 case "Quick sort":
                     if (myArray == null)
@@ -124,11 +124,11 @@ namespace WindowsFormsApp1
                         break;
                     }
                     comboBox2.Enabled = false;
-                    button3.Enabled = false;
-                    button2.Enabled = false;
+                    StartButton.Enabled = false;
+                    GenerateButton.Enabled = false;
                     ISortEngine seQuick = new SortEngineQuick(this);
                     seQuick.DoWork(myArray, g, panel1.Height);
-                    button1.Enabled = true;
+                    StopButton.Enabled = true;
                     break;
                 case "Cocktail sort":
                     if (myArray == null)
@@ -137,11 +137,11 @@ namespace WindowsFormsApp1
                         break;
                     }
                     comboBox2.Enabled = false;
-                    button3.Enabled = false;
-                    button2.Enabled = false;
+                    StartButton.Enabled = false;
+                    GenerateButton.Enabled = false;
                     ISortEngine seCocktail = new SortEngineCocktail(this);
                     seCocktail.DoWork(myArray, g, panel1.Height);
-                    button1.Enabled = true;
+                    StopButton.Enabled = true;
                     break;
                 case "Stalin Sort":
                     if (myArray == null)
@@ -150,11 +150,24 @@ namespace WindowsFormsApp1
                         break;
                     }
                     comboBox2.Enabled = false;
-                    button3.Enabled = false;
-                    button2.Enabled = false;
+                    StartButton.Enabled = false;
+                    GenerateButton.Enabled = false;
                     ISortEngine seStalin = new SortEngineStalin(this);
                     seStalin.DoWork(myArray, g, panel1.Height);
-                    button1.Enabled = true;
+                    StopButton.Enabled = true;
+                    break;
+                case "Binary Search":
+                    if (myArray == null)
+                    {
+                        MessageBox.Show("Please press Generate first to generate or regenerate values", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    }
+                    comboBox2.Enabled = false;
+                    StartButton.Enabled = false;
+                    GenerateButton.Enabled = false;
+                    ISortEngine seBinary = new SortEngineBinarySearch(this);
+                    seBinary.DoWork(myArray, g, panel1.Height);
+                    StopButton.Enabled = true;
                     break;
             }
         }
@@ -198,16 +211,16 @@ namespace WindowsFormsApp1
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void StopButton_Click(object sender, EventArgs e)
         {
             label1.Text = ("0");
             label5.Text = ("0");
 
             comboBox2.Enabled = true;
-            button3.Enabled = true;
-            button2.Enabled = true;
+            StartButton.Enabled = true;
+            GenerateButton.Enabled = true;
 
-            button1.Enabled = false;
+            StopButton.Enabled = false;
 
             _stopper = true;
         }
@@ -227,7 +240,7 @@ namespace WindowsFormsApp1
 
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void SoundButton_CheckChanged(object sender, EventArgs e)
         {
             if (_sound)
                 _sound = false;
@@ -240,7 +253,7 @@ namespace WindowsFormsApp1
             return _sound;
         }
 
-        private void button4_Click_1(object sender, EventArgs e)
+        private void PauseResumeButton_Click(object sender, EventArgs e)
         {
             if (!_paused)
             {
